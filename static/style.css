@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    margin-top: 20px;
+}

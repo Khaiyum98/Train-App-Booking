@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Seat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Book Seat for {{ train_name }} - {{ coach_name }}</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="seat">Select a seat:</label>
+                <select class="form-control" name="seat" id="seat">
+                    {% for seat in seats %}
+                    <option value="{{ seat.seat_number-1 }}" {% if seat.is_booked %}disabled{% endif %}>Seat {{ seat.seat_number }} {% if seat.is_booked %}(Booked){% endif %}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Book</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
